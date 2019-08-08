@@ -1,6 +1,6 @@
 export class ExampleIVO {
   public someInput1: boolean = true;
-  public someInput2: string = "hehho";
+  public someInput2: string = 'hehho';
   public someInput3: number = 3;
 
   constructor(someInput1: boolean, someInput2: string, someInput3: number) {

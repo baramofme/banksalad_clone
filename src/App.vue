@@ -1,25 +1,23 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
+    <core-filter />
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <core-toolbar />
+
+    <core-drawer />
+
+    <core-view />
   </v-app>
 </template>
+
+<style lang="scss">
+  @import '@/styles/index.scss';
+
+  /* Remove in 1.2 */
+  .v-datatable thead th.column.sortable i {
+    vertical-align: unset;
+  }
+</style>
 
 <script lang="ts">
 import Vue from 'vue';
