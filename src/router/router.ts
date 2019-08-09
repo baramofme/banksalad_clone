@@ -1,7 +1,7 @@
 // Lib imports
 import Vue from 'vue';
 import Router from 'vue-router';
-import Meta from 'vue-meta';
+const Meta = require('vue-meta');
 
 // Routes
 import {paths} from './paths';
