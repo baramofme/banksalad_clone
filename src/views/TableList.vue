@@ -19,7 +19,7 @@
           <v-data-table
             :headers="headers"
             :items="items"
-            hide-actions
+            hide-default-footer
           >
             <template
               slot="headerCell"
@@ -55,7 +55,7 @@
           <v-data-table
             :headers="headers"
             :items="items.slice(0, 7)"
-            hide-actions
+            hide-default-footer
           >
             <template
               slot="headerCell"
