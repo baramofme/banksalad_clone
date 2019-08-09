@@ -19,8 +19,8 @@
                     tag="v-list"
                     column
             >
-                <v-list-tile avatar>
-                    <v-list-tile-avatar
+                <v-list-item>
+                    <v-list-item-avatar
                             color="white"
                     >
                         <v-img
@@ -28,13 +28,13 @@
                                 height="34"
                                 contain
                         />
-                    </v-list-tile-avatar>
-                    <v-list-tile-title class="title">
+                    </v-list-item-avatar>
+                    <v-list-item-title class="title">
                         Vuetify MD
-                    </v-list-tile-title>
-                </v-list-tile>
+                    </v-list-item-title>
+                </v-list-item>
                 <v-divider/>
-                <v-list-tile
+                <v-list-item
                         v-if="responsive"
                 >
                     <v-text-field
@@ -42,35 +42,34 @@
                             label="Search..."
                             color="purple"
                     />
-                </v-list-tile>
-                <v-list-tile
+                </v-list-item>
+                <v-list-item
                         v-for="(link, i) in links"
                         :key="i"
                         :to="link.to"
                         :active-class="color"
-                        avatar
                         class="v-list-item"
                 >
-                    <v-list-tile-action>
+                    <v-list-item-action>
                         <v-icon>{{ link.icon }}</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-title
+                    </v-list-item-action>
+                    <v-list-item-title
                             v-text="link.text"
                     />
-                </v-list-tile>
-                <v-list-tile
+                </v-list-item>
+                <v-list-item
                         disabled
                         active-class="primary"
-                        class="v-list-item v-list__tile--buy"
+                        class="v-list-item v-list__item--buy"
                         to="/upgrade"
                 >
-                    <v-list-tile-action>
+                    <v-list-item-action>
                         <v-icon>mdi-package-up</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-title class="font-weight-light">
+                    </v-list-item-action>
+                    <v-list-item-title class="font-weight-light">
                         Upgrade To PRO
-                    </v-list-tile-title>
-                </v-list-tile>
+                    </v-list-item-title>
+                </v-list-item>
             </v-layout>
         </v-img>
     </v-navigation-drawer>
@@ -85,7 +84,7 @@
 
     export default {
         data: () => ({
-            logo: './img/vuetifylogo.png',
+            logo: '/assets/vuetifylogo.png',
             links: [
                 {
                     to: '/dashboard',
@@ -133,14 +132,14 @@
                 },
                 set(val) {
                     this.setDrawer(val);
-                }
+                },
             },
             items() {
                 return this.$t('Layout.View.items');
             },
             sidebarOverlayGradiant() {
                 return `${this.$store.state.app.sidebarBackgroundColor}, ${this.$store.state.app.sidebarBackgroundColor}`;
-            }
+            },
         },
         mounted() {
             this.onResponsiveInverted();
@@ -157,14 +156,14 @@
                 } else {
                     this.responsive = false;
                 }
-            }
-        }
-    }
+            },
+        },
+    };
 </script>
 
 <style lang="scss">
     #app-drawer {
-        .v-list__tile {
+        .v-list__item {
             border-radius: 4px;
 
             &--buy {
