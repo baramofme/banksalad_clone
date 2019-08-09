@@ -133,7 +133,7 @@
             <p class="card-description font-weight-light">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
             <v-btn
               color="success"
-              round
+              rounded
               class="font-weight-light"
             >Follow</v-btn>
           </v-card-text>
