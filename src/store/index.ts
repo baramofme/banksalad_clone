@@ -1,27 +1,26 @@
-/**
- * Vuex
- *
- * @library
- *
- * https://vuex.vuejs.org/en/
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+// import example from './module-example'
+
+Vue.use(Vuex)
+
+/*
+ * If not building with SSR mode, you can
+ * directly export the Store instantiation
  */
 
-import Vue from 'vue';
-import Vuex from 'vuex';
-// Store functionality
-import actions from './actions';
-import getters from './getters';
-import modules from './modules';
-import mutations from './mutations';
-import state from './state';
+export default function (/* { ssrContext } */) {
+  const Store = new Vuex.Store({
+    modules: {
+      // example
+    },
 
-Vue.use(Vuex);
+    // enable strict mode (adds overhead!)
+    // for dev mode only
+    strict: process.env.DEV === 'true'
+      ? true : undefined
+  })
 
-export default new Vuex.Store({
-    actions,
-    getters,
-    modules,
-    mutations,
-    state,
-});
-
+  return Store
+}
