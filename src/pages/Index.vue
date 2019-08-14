@@ -8,9 +8,12 @@
 </style>
 
 <script lang="ts">
-import Vue from 'vue'
+  import { Vue, Component } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'PageIndex'
-})
+  @Component({
+    name: 'PageIndex'
+  })
+  export default class Index extends Vue {
+
+  }
 </script>
