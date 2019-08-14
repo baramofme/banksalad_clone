@@ -73,6 +73,18 @@ module.exports = function (ctx) {
       // analyze: true,
       // extractCSS: false,
       extendWebpack (cfg) {
+        cfg.devtool = 'source-map',
+        cfg.output ={
+          devtoolModuleFilenameTemplate: info => {
+            var $filename = 'sources://' + info.resourcePath;
+            // 스크립트가 아닌 vue 파일만 정보 추가
+            if (info.resourcePath.match(/\.vue$/) && !info.query.match(/type=script/)) {
+              $filename = 'webpack-generated:///' + info.resourcePath + '?' + info.hash;
+            }
+            return $filename;
+          },
+          devtoolFallbackModuleFilenameTemplate: 'webpack:///[resource-path]?[hash]',
+        },
         cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -80,7 +92,7 @@ module.exports = function (ctx) {
           exclude: /node_modules/,
           options: {
             formatter: require('eslint').CLIEngine.getFormatter('stylish')
-          }
+          },
         })
       }
     },
@@ -170,6 +182,7 @@ module.exports = function (ctx) {
 
         // appId: 'banksalad_clone'
       }
-    }
+    },
+
   }
 }
