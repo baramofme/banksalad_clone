@@ -21,7 +21,8 @@ describe('Mount Quasar', () => {
   const localVue = createLocalVue()
   localVue.use(Quasar, { components }) // , lang: langEn
 
-  const wrapper = mount(QBUTTON, {
+  const wrapper = mount(QBUTTON,
+    {
     localVue
   })
   const vm = wrapper.vm
@@ -30,9 +31,9 @@ describe('Mount Quasar', () => {
     expect(wrapper.isVueInstance()).toBe(true)
   })
 
-  it('has a created hook', () => {
-    expect(typeof vm.increment).toBe('function')
-  })
+  // it('has a created hook', () => {
+  //   expect(typeof vm.increment).toBe('function')
+  // })
 
   it('accesses the shallowMount', () => {
     expect(vm.$el.textContent).toContain('rocket muffin')
